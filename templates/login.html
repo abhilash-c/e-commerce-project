@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page in HTML</title>
+</head>
+<body>
+    
+    <form style="margin: auto; width: 220px;" action="login" method="POST">
+      {% csrf_token %}
+       
+        <div class="headingsContainer">
+            <h3>Sign in</h3>
+            <p>Sign in with your username and password</p>
+            <br>
+        </div>
+
+        <div class="mainContainer">
+            <!-- Username -->
+            <label for="username">Your username</label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <br><br>
+
+            <!-- Password -->
+            <label for="password">Your password</label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            
+           <br>
+           <br>
+            <!-- Submit button -->
+            <button type="submit">Login</button>
+
+            <!-- Sign up link -->
+            <p class="register">Not a member?  <a href="{% url 'register' %}">Register here!</a></p>
+
+        </div>
+        <br>
+    </form>
+
+    <div>
+      {% for message in messages %}
+      <h3> {{message}} </h3>
+      {% endfor %}
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+{% endblock %}
